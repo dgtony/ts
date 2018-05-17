@@ -38,7 +38,7 @@ fn main() {
 
         None => {
             let ts = current_ts();
-            println!("Current timestamp:\n{}", ts);
+            println!("Current timestamp: {}", ts);
         }
     }
 }
