@@ -21,10 +21,9 @@ fn parse_ts(ts: &str) -> Option<DateTime<Utc>> {
     Some(DateTime::from_utc(moment, Utc))
 }
 
-fn print_parsed_time(ts: &str) {
+fn process_ts(ts: &str) {
     match parse_ts(ts) {
         Some(moment) => println!("{} => {}", ts.trim(), moment),
-
         None => {
             println!("cannot parse timestamp");
             process::exit(1);
@@ -34,8 +33,7 @@ fn print_parsed_time(ts: &str) {
 
 fn main() {
     match env::args().skip(1).next() {
-        Some(timestamp) => print_parsed_time(&timestamp),
-
+        Some(timestamp) => process_ts(&timestamp),
         None => {
             let ts = current_ts();
             println!("Current timestamp: {}", ts);
